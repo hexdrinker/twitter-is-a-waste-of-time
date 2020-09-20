@@ -22,7 +22,7 @@ function App() {
     return (
         <>
             {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "Initializing..."}
-            <footer>&copy; {new Date().getFullYear()} twitter is a waste of time</footer>
+            {/* <footer>&copy; {new Date().getFullYear()} twitter is a waste of time</footer> */}
         </>
     );
 }
