@@ -1,3 +1,4 @@
+import Twit from 'components/Twit';
 import { dbService } from 'fbase';
 import React, { useState, useEffect } from 'react'
 
@@ -34,7 +35,7 @@ export default function Home({ userObj }) {
     const onSubmit = async e => {
         e.preventDefault();
         await dbService.collection("twits").add({
-            twit,
+            text: twit,
             createdAt: Date.now(),
             creatorId: userObj.uid
         });
@@ -52,9 +53,11 @@ export default function Home({ userObj }) {
             </form>
             <div>
                 {twits.map(twit => (
-                    <div key={twit.id}>
-                        <h4>{twit.twit}</h4>
-                    </div>
+                    <Twit
+                        key={twit.id}
+                        twitObj={twit}
+                        isOwner={twit.creatorId === userObj.uid}
+                    />
                 ))}
             </div>
         </div>
