@@ -1,4 +1,4 @@
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import React, { useState } from 'react'
 
 export default function Twit({ twitObj, isOwner }) {
@@ -7,9 +7,9 @@ export default function Twit({ twitObj, isOwner }) {
 
     const onDeleteClick = async () => {
         const ok = window.confirm("Are you sure you want to delete this twit?");
-
         if (ok) {
             await dbService.doc(`twits/${twitObj.id}`).delete();
+            await storageService.refFromURL(twitObj.attachmentUrl).delete();
         }
     }
 
@@ -34,7 +34,6 @@ export default function Twit({ twitObj, isOwner }) {
         <div key={twitObj.id}>
             {
                 editing ? (
-                    
                     <>
                         {isOwner && 
                             <>
@@ -58,6 +57,7 @@ export default function Twit({ twitObj, isOwner }) {
                 ) : (
                     <>
                         <h4>{twitObj.text}</h4>
+                        {twitObj.attachmentUrl && <img src={twitObj.attachmentUrl} width="50px" height="50px" alt="" />}
                         {isOwner && (
                             <>
                                 <button onClick={onDeleteClick}>Delete Twit</button>

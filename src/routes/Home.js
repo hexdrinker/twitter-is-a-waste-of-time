@@ -1,6 +1,7 @@
 import Twit from 'components/Twit';
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import React, { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home({ userObj }) {
     const [twit, setTwit] = useState("");
@@ -34,12 +35,21 @@ export default function Home({ userObj }) {
 
     const onSubmit = async e => {
         e.preventDefault();
-        await dbService.collection("twits").add({
+        let attachmentUrl = "";
+        if (attachment !== "") {
+            const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+            const response = await fileRef.putString(attachment, "data_url");
+            attachmentUrl = await response.ref.getDownloadURL();
+        }
+        const twitObj = {
             text: twit,
             createdAt: Date.now(),
-            creatorId: userObj.uid
-        });
+            creatorId: userObj.uid,
+            attachmentUrl
+        }
+        await dbService.collection("twits").add(twitObj);
         setTwit("");
+        setAttachment("");
     }
     const onChange = e => {
         const { target: { value }} = e;
@@ -77,7 +87,7 @@ export default function Home({ userObj }) {
                 <input type="submit" value="twit" />
                 {attachment && (
                     <div>
-                        <img src={attachment} width="50px" height="50px" />
+                        <img src={attachment} width="50px" height="50px" alt="" />
                         <button onClick={onClearAttachment}>Clear</button>
                     </div>
                 )}
