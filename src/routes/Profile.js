@@ -1,5 +1,5 @@
 import { authService, dbService } from 'fbase'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
 export default function Profile({ refreshUser, userObj }) {
@@ -10,6 +10,7 @@ export default function Profile({ refreshUser, userObj }) {
         history.push("/");
     }
 
+    // 내 트윗 가져오기
     const getMyTwits = async () => {
         const twits = dbService
             .collection("twits")
@@ -32,10 +33,6 @@ export default function Profile({ refreshUser, userObj }) {
             refreshUser();
         }
     }
-
-    useEffect(() => {
-        getMyTwits();
-    }, []);
     return (
         <div className="container">
             <form onSubmit={onSubmit} className="profileForm">

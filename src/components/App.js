@@ -4,23 +4,20 @@ import { authService } from 'fbase';
 
 function App() {
     const [init, setInit] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userObj, setUserObj] = useState(null);
 
     useEffect(() => {
         authService.onAuthStateChanged(user => {
             if (user) {
-                setIsLoggedIn(true);
                 // 1번
-                setUserObj(user);
+                // setUserObj(user);
                 // 2번
-                // setUserObj({
-                //     displayName: user.displayName,
-                //     uid: user.uid,
-                //     updateProfile: (args) => user.updateProfile(args)
-                // });
+                setUserObj({
+                    displayName: user.displayName,
+                    uid: user.uid,
+                    updateProfile: (args) => user.updateProfile(args)
+                });
             } else {
-                setIsLoggedIn(false);
                 setUserObj(null);
             }
             setInit(true);
@@ -30,13 +27,13 @@ function App() {
     const refreshUser = () => {
         const user = authService.currentUser;
         // 1번
-        setUserObj(Object.assign({}, user));
+        // setUserObj(Object.assign({}, user));
         // 2번
-        // setUserObj({
-        //     displayName: user.displayName,
-        //     uid: user.uid,
-        //     updateProfile: (args) => user.updateProfile(args)
-        // });
+        setUserObj({
+            displayName: user.displayName,
+            uid: user.uid,
+            updateProfile: (args) => user.updateProfile(args)
+        });
     }
     
     return (
@@ -45,7 +42,7 @@ function App() {
                 ? (
                     <AppRouter
                         refreshUser={refreshUser}
-                        isLoggedIn={isLoggedIn}
+                        isLoggedIn={Boolean(userObj)}
                         userObj={userObj}
                     />
                 ) : "Initializing..."
