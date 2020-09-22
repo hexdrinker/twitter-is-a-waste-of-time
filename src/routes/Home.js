@@ -32,9 +32,9 @@ export default function Home({ userObj }) {
     }, []);    
 
     return (
-        <div>
+        <div className="container">
             <TwitFactory userObj={userObj} />
-            <div>
+            <div style={{ marginTop: 30 }}>
                 {twits.map(twit => (
                     <Twit
                         key={twit.id}

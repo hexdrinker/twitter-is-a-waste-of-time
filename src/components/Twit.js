@@ -1,5 +1,7 @@
 import { dbService, storageService } from 'fbase';
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Twit({ twitObj, isOwner }) {
     const [editing, setEditing] = useState(false);
@@ -31,38 +33,47 @@ export default function Twit({ twitObj, isOwner }) {
     }
 
     return (
-        <div key={twitObj.id}>
+        <div className="twit">
             {
                 editing ? (
                     <>
                         {isOwner && 
                             <>
-                                <form onSubmit={onSubmit}>
+                                <form onSubmit={onSubmit} className="container twitEdit">
                                     <input
                                         type="text"
                                         value={newTwit}
                                         placeholder="Edit twit"
                                         onChange={onChange}
+                                        autoFocus
                                         required
+                                        className="formInput"
                                     />
                                     <input
                                         type="submit"
                                         value="Update twit"
+                                        className="formBtn"
                                     />
                                 </form>
-                                <button onClick={toggleEditing}>Cancel</button>
+                                <span onClick={toggleEditing} className="formBtn cancelBtn">
+                                    Cancel
+                                </span>
                             </>
                         }
                     </>
                 ) : (
                     <>
                         <h4>{twitObj.text}</h4>
-                        {twitObj.attachmentUrl && <img src={twitObj.attachmentUrl} width="50px" height="50px" alt="" />}
+                        {twitObj.attachmentUrl && <img src={twitObj.attachmentUrl} alt="" />}
                         {isOwner && (
-                            <>
-                                <button onClick={onDeleteClick}>Delete Twit</button>
-                                <button onClick={toggleEditing}>Edit Twit</button>
-                            </>
+                            <div className="twit__actions">
+                                <span onClick={onDeleteClick}>
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </span>
+                                <span onClick={toggleEditing}>
+                                    <FontAwesomeIcon icon={faPencilAlt} />
+                                </span>
+                            </div>
                         )}
                     </>
                 )
