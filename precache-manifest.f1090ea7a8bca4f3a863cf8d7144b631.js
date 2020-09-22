@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a0f615c201f2921465be8ac3a33de184",
+    "revision": "39eceb19684ae0a8668d250f814736c6",
     "url": "/twitter-is-a-waste-of-time/index.html"
   },
   {
-    "revision": "c9ded30e535c1dd3225e",
-    "url": "/twitter-is-a-waste-of-time/static/css/main.c04b2658.chunk.css"
+    "revision": "38539b7d28fda347a68e",
+    "url": "/twitter-is-a-waste-of-time/static/css/main.e47717fa.chunk.css"
   },
   {
     "revision": "0a9d20cf2e091d155756",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/twitter-is-a-waste-of-time/static/js/2.517cd68d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c9ded30e535c1dd3225e",
+    "revision": "38539b7d28fda347a68e",
     "url": "/twitter-is-a-waste-of-time/static/js/main.8d15bfcc.chunk.js"
   },
   {

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/twitter-is-a-waste-of-time/precache-manifest.683e1aee3aa1e352d08399d90ab11489.js"
+  "/twitter-is-a-waste-of-time/precache-manifest.f1090ea7a8bca4f3a863cf8d7144b631.js"
 );
 
 self.addEventListener('message', (event) => {

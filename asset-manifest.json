@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/twitter-is-a-waste-of-time/static/css/main.c04b2658.chunk.css",
+    "main.css": "/twitter-is-a-waste-of-time/static/css/main.e47717fa.chunk.css",
     "main.js": "/twitter-is-a-waste-of-time/static/js/main.8d15bfcc.chunk.js",
     "main.js.map": "/twitter-is-a-waste-of-time/static/js/main.8d15bfcc.chunk.js.map",
     "runtime-main.js": "/twitter-is-a-waste-of-time/static/js/runtime-main.c7cd2f4f.js",
@@ -8,15 +8,15 @@
     "static/js/2.517cd68d.chunk.js": "/twitter-is-a-waste-of-time/static/js/2.517cd68d.chunk.js",
     "static/js/2.517cd68d.chunk.js.map": "/twitter-is-a-waste-of-time/static/js/2.517cd68d.chunk.js.map",
     "index.html": "/twitter-is-a-waste-of-time/index.html",
-    "precache-manifest.683e1aee3aa1e352d08399d90ab11489.js": "/twitter-is-a-waste-of-time/precache-manifest.683e1aee3aa1e352d08399d90ab11489.js",
+    "precache-manifest.f1090ea7a8bca4f3a863cf8d7144b631.js": "/twitter-is-a-waste-of-time/precache-manifest.f1090ea7a8bca4f3a863cf8d7144b631.js",
     "service-worker.js": "/twitter-is-a-waste-of-time/service-worker.js",
-    "static/css/main.c04b2658.chunk.css.map": "/twitter-is-a-waste-of-time/static/css/main.c04b2658.chunk.css.map",
+    "static/css/main.e47717fa.chunk.css.map": "/twitter-is-a-waste-of-time/static/css/main.e47717fa.chunk.css.map",
     "static/js/2.517cd68d.chunk.js.LICENSE.txt": "/twitter-is-a-waste-of-time/static/js/2.517cd68d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c7cd2f4f.js",
     "static/js/2.517cd68d.chunk.js",
-    "static/css/main.c04b2658.chunk.css",
+    "static/css/main.e47717fa.chunk.css",
     "static/js/main.8d15bfcc.chunk.js"
   ]
 }
