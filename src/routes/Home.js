@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function Home({ userObj }) {
     const [twit, setTwit] = useState("");
     const [twits, setTwits] = useState([]);
-    const [attachment, setAttachment] = useState();
+    const [attachment, setAttachment] = useState("");
     /*
     실시간 아님, 좀 오래된 방식
     
